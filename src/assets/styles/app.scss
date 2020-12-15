@@ -1,0 +1,15 @@
+#root {
+  height: 100%;
+}
+
+.app {
+  &-header {
+    background-color: white;
+  }
+}
+
+.ant {
+  &-layout {
+    height: inherit;
+  }
+}
