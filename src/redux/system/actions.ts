@@ -1,5 +1,5 @@
 import {SystemActions, UPDATE_LANG, USER_LOGIN, USER_LOGOUT} from "../../types/system/types";
-import {LoginUserResponse} from "../../types/responses/user";
+import {LoginUserResponse} from "../../types/responses/User";
 
 export function updateLanguage(lang: string): SystemActions {
     return {
