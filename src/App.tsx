@@ -5,16 +5,16 @@ import i18next from 'i18next';
 import {Dropdown, Layout, Menu} from "antd";
 import {GlobalOutlined} from '@ant-design/icons';
 import {updateLanguage} from "./redux/system/actions";
+import {Route, Switch} from "react-router-dom";
+import Home from "./pages/public/Home";
 
 
 const {Content, Footer, Header} = Layout;
-
 
 const languageList = [
     {key: 'ru', title: 'Russian (Русский)'},
     {key: 'en', title: 'English'},
 ];
-
 
 type AppState = {
     lang: string
@@ -72,9 +72,13 @@ class App extends React.Component<Props, AppState> {
 
         return (
             <Layout>
-                <Header className='app-header'>dsdklsk</Header>
+                <Header className='app-header'>Test app header</Header>
                 <Content>
-                    <p>{i18next.t('test')}</p>
+                    <Switch>
+                        <Route path='/'>
+                            <Home/>
+                        </Route>
+                    </Switch>
                 </Content>
                 <Footer>
                     <Dropdown overlay={languageMenu}>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {Provider} from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
 import {store} from "./redux/rootReducer";
 
 import 'antd/dist/antd.css';
@@ -10,7 +11,9 @@ import './assets/styles/app.scss';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root')
 );

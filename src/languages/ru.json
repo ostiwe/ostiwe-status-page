@@ -1,7 +1,9 @@
 {
   "ru": {
     "translation": {
-      "test": "ТЕСТ"
+      "test": "ТЕСТ",
+      "home_90_days_ago": "90 Дней назад",
+      "home_today": "Сегодня"
     }
   }
 }
