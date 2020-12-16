@@ -66,7 +66,7 @@ const Index = (props: PropsInterface) => {
                 if (error) {
                     className += ' day_ss';
                 }
-                return <div onMouseEnter={hoverAction} onMouseLeave={hoverAction} className={className}/>
+                return <div key={`day_${value}`} onMouseEnter={hoverAction} onMouseLeave={hoverAction} className={className}/>
             })}
         </div>
         <div className='mt-2'>
