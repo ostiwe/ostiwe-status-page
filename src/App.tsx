@@ -11,11 +11,6 @@ import Home from "./pages/public/Home";
 
 const {Content, Footer, Header} = Layout;
 
-const languageList = [
-    {key: 'ru', title: 'Russian (Русский)'},
-    {key: 'en', title: 'English'},
-];
-
 type AppState = {
     lang: string
 };
@@ -35,7 +30,7 @@ class App extends React.Component<Props, AppState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            lang: this.props.system.lang
+            lang: 'ru'
         }
         this.initLanguage = this.initLanguage.bind(this);
         this.changeLanguage = this.changeLanguage.bind(this);
@@ -43,11 +38,11 @@ class App extends React.Component<Props, AppState> {
 
     initLanguage() {
         const {lang} = this.props.system;
+        this.setState({lang});
         i18next.init({
             lng: lang,
             resources: require(`./languages/${lang}.json`)
         })
-        this.setState({lang});
     }
 
     changeLanguage(e: any) {
@@ -61,13 +56,10 @@ class App extends React.Component<Props, AppState> {
         }
     }
 
-    componentDidMount() {
-        this.initLanguage();
-    }
-
     render() {
+        const languageList = this.props.system.availableLanguage;
         const languageMenu = <Menu onClick={this.changeLanguage}>
-            {languageList.map(({key, title}) => <Menu.Item key={key}>{title}</Menu.Item>)}
+            {languageList.map(({code, name}) => <Menu.Item key={code}>{name}</Menu.Item>)}
         </Menu>
 
         return (
