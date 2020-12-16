@@ -20,11 +20,17 @@ export interface UserLogoutInterface {
     payload: null
 }
 
+export interface Language {
+    code: string,
+    name: string
+}
+
 export interface SystemState {
     logged: boolean,
     user: User | null,
     accessToken: string | null
     lang: string
+    availableLanguage: Language[]
 }
 
 export interface User {
