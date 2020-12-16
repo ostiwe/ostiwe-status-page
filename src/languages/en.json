@@ -1,7 +1,9 @@
 {
   "en": {
     "translation": {
-      "test": "TEST"
+      "test": "TEST",
+      "home_90_days_ago": "90 days ago",
+      "home_today": "Today"
     }
   }
 }
