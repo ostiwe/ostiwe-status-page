@@ -1,0 +1,13 @@
+{
+  "url": "https://test.com",
+  "method": "POST",
+  "title": "Test service",
+  "headers": [
+    {
+      "header": "Token",
+      "value": "12345678900987654321qwerty"
+    }
+  ],
+  "interval": 120,
+  "request_timeout": 10
+}

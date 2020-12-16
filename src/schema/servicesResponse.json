@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Services Response",
+  "type": "object",
+  "required": [
+    "data"
+  ],
+  "definitions": {
+    "incident": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "description": "Date on UNIX"
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Incidents count of day"
+        }
+      },
+      "required": [
+        "amount",
+        "date"
+      ]
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "ID record in database"
+        },
+        "title": {
+          "type": "string",
+          "description": "Public title for service"
+        },
+        "uptime": {
+          "type": "integer",
+          "description": "Uptime service in percent"
+        },
+        "last_check": {
+          "type": "integer",
+          "description": "Last check time in UNIX"
+        },
+        "response_time": {
+          "type": "integer",
+          "description": "Average response time from service"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "online",
+            "offline",
+            "warning"
+          ]
+        },
+        "incidents": {
+          "type": "array",
+          "minItems": 90,
+          "maxItems": 90,
+          "items": {
+            "$ref": "#/definitions/incident"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "id",
+        "last_check",
+        "response_time",
+        "status",
+        "uptime",
+        "incidents"
+      ]
+    }
+  },
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/service"
+      }
+    }
+  }
+}

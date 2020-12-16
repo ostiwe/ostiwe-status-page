@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Request to add new service",
+  "type": "object",
+  "definitions": {
+    "header": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "header",
+        "value"
+      ]
+    }
+  },
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "interval": {
+      "type": "integer"
+    },
+    "request_timeout": {
+      "type": "integer",
+      "description": "Request timeout in seconds"
+    },
+    "headers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/header"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "headers",
+    "interval",
+    "request_timeout",
+    "url",
+    "method"
+  ]
+}
